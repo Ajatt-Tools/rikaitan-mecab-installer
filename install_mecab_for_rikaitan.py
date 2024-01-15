@@ -29,30 +29,30 @@ elif sys.version_info[0] == 2:
 
 DIR = os.path.realpath(os.path.dirname(__file__))
 
-NAME = 'yomichan_mecab'
+NAME = 'rikaitan_mecab'
 
 MANIFEST_TEMPLATE = {
-    'name': 'yomichan_mecab',
-    'description': 'MeCab for Yomichan',
+    'name': 'rikaitan_mecab',
+    'description': 'MeCab for Rikaitan',
     'type': 'stdio',
 }
 
 BROWSER_DATA = {
     'firefox': {
         'extension_id_key': 'allowed_extensions',
-        'extension_ids': ['alex@foosoft.net'],
+        'extension_ids': ['tatsu@autistici.org'],
     },
     'chrome': {
         'extension_id_key': 'allowed_origins',
-        'extension_ids': ['chrome-extension://ogmnaimimemjmbakcfefmnahgdfhfami/'],
+        'extension_ids': ['chrome-extension://pnjdahdadbkhcfamabafkjbjblbgkodk/'],
     },
     'chromium': {
         'extension_id_key': 'allowed_origins',
-        'extension_ids': ['chrome-extension://ogmnaimimemjmbakcfefmnahgdfhfami/'],
+        'extension_ids': ['chrome-extension://pnjdahdadbkhcfamabafkjbjblbgkodk/'],
     },
     'edge': {
         'extension_id_key': 'allowed_origins',
-        'extension_ids': ['chrome-extension://ogmnaimimemjmbakcfefmnahgdfhfami/'],
+        'extension_ids': ['chrome-extension://pnjdahdadbkhcfamabafkjbjblbgkodk/'],
     },
 }
 
@@ -118,18 +118,18 @@ PLATFORM_DATA = {
 }
 
 DICTIONARY_DATA = {
-    'ipadic': {
-        'url': 'https://github.com/siikamiika/yomichan-mecab-installer/releases/download/ipadic-1/ipadic.zip',
-        'compression': 'zip',
-        'size': '51M',
-        'description': 'A basic dictionary',
-    },
-    'unidic-mecab-translate': {
-        'url': 'https://github.com/siikamiika/unidic-mecab-translate/releases/download/1.2/unidic-mecab-translate-1.2.zip',
+    'unidic-mecab-translate ⭐': {
+        'url': 'https://github.com/Ajatt-Tools/rikaitan-mecab-installer/releases/download/unidic/unidic.zip',
         'compression': 'zip',
         'size': '191M',
-        'description': 'A dictionary that prefers shorter words to longer ones, is usually more accurate, and shows pronunciation instead of reading',
-    }
+        'description': 'A dictionary that prefers shorter words to longer ones, is usually more accurate, and shows pronunciation instead of reading.',
+    },
+    'ipadic': {
+        'url': 'https://github.com/Ajatt-Tools/rikaitan-mecab-installer/releases/download/ipadic/ipadic.zip',
+        'compression': 'zip',
+        'size': '51M',
+        'description': 'A basic dictionary.',
+    },
 }
 
 def platform_data_get():
@@ -181,7 +181,7 @@ def main():
 
     # generate manifest
     print('')
-    print('Using default Yomichan extension ID for {}.'.format(browser))
+    print('Using default Rikaitan extension ID for {}.'.format(browser))
     print('Add more extension IDs, or press enter to continue')
     additional_extension_ids = []
     while True:
@@ -191,7 +191,7 @@ def main():
         additional_extension_ids.append(extension_id)
     script_path = os.path.join(DIR, 'mecab.py')
     if platform_data['platform'] == 'windows':
-        bat_path = os.path.join(DIR, 'mecab_yomichan.bat')
+        bat_path = os.path.join(DIR, 'mecab_rikaitan.bat')
         with open(bat_path, 'w') as f:
             f.write('@echo off\n"{}" -u "{}"'.format(
                 sys.executable,
